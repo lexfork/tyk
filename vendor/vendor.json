@@ -171,16 +171,22 @@
 			"revisionTime": "2016-05-08T00:03:57Z"
 		},
 		{
-			"checksumSHA1": "2UmMbNHc8FBr98mJFN1k8ISOIHk=",
-			"path": "github.com/garyburd/redigo/internal",
-			"revision": "80f7de34463b0ed3d7c61303e5619efe1b227f92",
-			"revisionTime": "2016-10-24T01:47:02Z"
+			"checksumSHA1": "9J3ge5uczojrlF5d0TQAkByFVYg=",
+			"path": "github.com/garyburd/redigo",
+			"revision": "a7327d8ced8067e916e7e35490522fd0182fa839",
+			"revisionTime": "2018-02-28T18:30:32Z"
 		},
 		{
-			"checksumSHA1": "qqi0xwKRUSRkYMFZcqWSS/4YAjA=",
+			"checksumSHA1": "2UmMbNHc8FBr98mJFN1k8ISOIHk=",
+			"path": "github.com/garyburd/redigo/internal",
+			"revision": "a7327d8ced8067e916e7e35490522fd0182fa839",
+			"revisionTime": "2018-02-28T18:30:32Z"
+		},
+		{
+			"checksumSHA1": "3kM5bMyfqvdCfgQdOb01CR1aA74=",
 			"path": "github.com/garyburd/redigo/redis",
-			"revision": "80f7de34463b0ed3d7c61303e5619efe1b227f92",
-			"revisionTime": "2016-10-24T01:47:02Z"
+			"revision": "a7327d8ced8067e916e7e35490522fd0182fa839",
+			"revisionTime": "2018-02-28T18:30:32Z"
 		},
 		{
 			"checksumSHA1": "OvNubVhC95zaeONCY6Ztp0DScrc=",
