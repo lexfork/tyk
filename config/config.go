@@ -225,7 +225,7 @@ type Config struct {
 	StatsdConnectionString            string                                `json:"statsd_connection_string"`
 	StatsdPrefix                      string                                `json:"statsd_prefix"`
 	EnforceOrgDataAge                 bool                                  `json:"enforce_org_data_age"`
-	EnforceOrgDataDeailLogging        bool                                  `json:"enforce_org_data_detail_logging"`
+	EnforceOrgDataDetailLogging       bool                                  `json:"enforce_org_data_detail_logging"`
 	EnforceOrgQuotas                  bool                                  `json:"enforce_org_quotas"`
 	ExperimentalProcessOrgOffThread   bool                                  `json:"experimental_process_org_off_thread"`
 	EnableNonTransactionalRateLimiter bool                                  `json:"enable_non_transactional_rate_limiter"`
@@ -235,6 +235,7 @@ type Config struct {
 	Monitor                           MonitorConfig                         `json:"monitor"`
 	OauthRefreshExpire                int64                                 `json:"oauth_refresh_token_expire"`
 	OauthTokenExpire                  int32                                 `json:"oauth_token_expire"`
+	OauthTokenExpiredRetainPeriod     int32                                 `json:"oauth_token_expired_retain_period"`
 	OauthRedirectUriSeparator         string                                `json:"oauth_redirect_uri_separator"`
 	SlaveOptions                      SlaveOptionsConfig                    `json:"slave_options"`
 	DisableVirtualPathBlobs           bool                                  `json:"disable_virtual_path_blobs"`

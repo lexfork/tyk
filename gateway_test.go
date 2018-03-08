@@ -212,7 +212,7 @@ func createSpecTest(t *testing.T, def string) *APISpec {
 	return spec
 }
 
-func testKey(t *testing.T, name string) string {
+func testKey(t testing.TB, name string) string {
 	return fmt.Sprintf("%s-%s", t.Name(), name)
 }
 
@@ -1149,5 +1149,30 @@ func TestKeepAliveConns(t *testing.T) {
 			{Code: 200},
 			{Code: 200},
 		}...)
+	})
+
+	t.Run("Should respect max_conn_time", func(t *testing.T) {
+		config.Global.CloseConnections = false
+		// Allow 2 connection with 2 reads
+		upstream := createTestUptream(t, 2, 2)
+		defer upstream.Close()
+		config.Global.MaxConnTime = 1
+
+		spec := buildAndLoadAPI(func(spec *APISpec) {
+			spec.Proxy.ListenPath = "/"
+			spec.Proxy.TargetURL = "http://" + upstream.Addr().String()
+		})[0]
+
+		ts.Run(t, []test.TestCase{
+			{Code: 200},
+			{Code: 200},
+		}...)
+
+		// Set in past to re-create transport
+		spec.HTTPTransportCreated = time.Now().Add(-time.Minute)
+
+		// Should be called in new connection
+		// We already made 2 requests above, so 3th in same not allowed
+		ts.Run(t, test.TestCase{Code: 200})
 	})
 }
