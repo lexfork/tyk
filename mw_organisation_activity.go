@@ -64,7 +64,7 @@ func (k *OrganizationMonitor) ProcessRequestLive(r *http.Request) (error, int) {
 		&session,
 		k.Spec.OrgID,
 		k.Spec.OrgSessionManager.Store(),
-		true,
+		session.Per > 0 && session.Rate > 0,
 		true,
 	)
 
@@ -179,7 +179,7 @@ func (k *OrganizationMonitor) AllowAccessNext(orgChan chan bool, path string, IP
 		&session,
 		k.Spec.OrgID,
 		k.Spec.OrgSessionManager.Store(),
-		true,
+		session.Per > 0 && session.Rate > 0,
 		true,
 	)
 
